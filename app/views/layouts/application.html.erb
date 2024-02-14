@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProductManagmentSystem</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+     <style>
+    .navbar {
+      background-color: #007bff;
+      padding: 10px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
+
+    .navbar-dropdown {
+      display: inline-block;
+    }
+ .navbar-dropdown1 {
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content1 {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content1 a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+.dropdown-content1 a:hover {
+      background-color: #ddd;
+    }
+    .navbar-dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .navbar-dropdown1:hover .dropdown-content1 {
+      display: block;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <% unless current_user&.admin? %>
+  <div class="navbar-dropdown1">
+    <a href="#">Cart</a>
+    <div class="dropdown-content1">
+      <%= link_to 'Total Bill', total_bill_path %>
+    </div>
+  </div>
+<% end %>
+
+
+  <% if user_signed_in? %>
+    <div class="navbar-dropdown">
+      <a href="#">Current User</a>
+      <div class="dropdown-content">
+        <a href="#">Sign in as <%= current_user.email %></a>
+        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+  </body>
+</html>

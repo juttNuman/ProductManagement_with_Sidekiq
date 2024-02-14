@@ -1,0 +1,20 @@
+<h1>Total Bill</h1>
+<% if @carts.any? %>
+  <ul>
+    <% @carts.each do |cart| %>
+      <li>
+        <strong>Item:</strong> <%= cart.product.name %><br>
+        <strong>Bill:</strong> <%= cart.bill %><br>
+        <strong>Quantity:</strong> <%= cart.quantity %>
+      </li>
+    <% end %>
+  </ul>
+  <p><strong>Total Bill:</strong> <%= @total_bill %></p>
+<% else %>
+  <p>No carts found.</p>
+<% end %>
+
+<%= form_tag place_order_path, method: :post do %>
+  <%= submit_tag 'Place Order', data: { confirm: 'Are you sure you want to place the order?' } %>
+<% end %>
+<%= link_to 'Buy New Products', products_path %>

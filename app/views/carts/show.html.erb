@@ -1,0 +1,9 @@
+<h1><%= @cart.product.name %></h1>
+<p><strong>Cart_Id:</strong> <%= @cart.id %></p>
+<p><strong>Product Name:</strong> <%= @cart.product.name %></p>
+<p><strong>Bill:</strong> <%= @cart.bill %></p>
+<br>
+<br>
+<div>
+    <%= link_to 'Total Bill', total_bill_path %>
+ </div>
