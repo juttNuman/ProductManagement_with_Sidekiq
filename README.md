@@ -1,27 +1,6 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Product_Management_System_in_Rails
-# ProductManagement_with_Sidekiq
-# ProductManagement_with_Sidekiq
+#Product Management System
+in this project user will create the products and customer can add products to his cart can choose quantity 
+order confirmation email will be sent to him. 
+when he will confrim through the link order will place. 
+and we handle all this email sending process through separate server of redis. 
+and sidekiq gem will handle all our background jobs.
